@@ -1,7 +1,14 @@
 ﻿@page
+@using DevOpsData;
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    IEnumerable<Product> productos = new ProductRepository().GetAll();
+}
+
+@foreach(var producto in productos)
+{
+   <h1>@producto.Name</h1>
 }
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
